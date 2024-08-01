@@ -1,6 +1,7 @@
 
 using Microsoft.Data.Sqlite;
 using NLog;
+using swiftmt799_web_api.Middleware;
 using swiftmt799_web_api.Repositories;
 using swiftmt799_web_api.Services;
 
@@ -23,6 +24,8 @@ namespace swiftmt799_web_api
             initDB(builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection"));
 
             var app = builder.Build();
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             if (app.Environment.IsDevelopment())
             {

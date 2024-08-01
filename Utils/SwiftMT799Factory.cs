@@ -3,6 +3,8 @@ using System.Text.RegularExpressions;
 
 namespace swiftmt799_web_api.Utils
 {
+
+    //Constructs object by matching fields with regex
     public static class SwiftMT799Factory
     {
         private const string Block1Pattern = @"^{1:([A-Z0-9]+)}";

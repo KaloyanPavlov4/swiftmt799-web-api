@@ -27,6 +27,7 @@ namespace swiftmt799_web_api.Middleware
 
         private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
+            //Logs the error to a file located in logs/errors.log
             _logger.Error(exception, "An unhandled exception occurred");
 
             context.Response.ContentType = "application/json";
