@@ -1,5 +1,8 @@
 
 using Microsoft.Data.Sqlite;
+using NLog;
+using swiftmt799_web_api.Repositories;
+using swiftmt799_web_api.Services;
 
 namespace swiftmt799_web_api
 {
@@ -9,7 +12,11 @@ namespace swiftmt799_web_api
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            LogManager.Setup().LoadConfigurationFromFile("NLog.config");
+
             builder.Services.AddControllers();
+            builder.Services.AddSingleton<ISwiftMT799Repository, SwiftMT799Repository>();
+            builder.Services.AddSingleton<ISwiftMT799Service, SwiftMT799Service>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
