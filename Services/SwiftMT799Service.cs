@@ -31,7 +31,7 @@ namespace swiftmt799_web_api.Services
             var input = fileSb.ToString();
             input = Regex.Replace(input, @"\s+", " ");
             input = input.Trim().Replace("\n", "").Replace("\r", "");
-            SwiftMT799Message message = SwiftMT799Factory.createFromString(input);
+            SwiftMT799Message message = SwiftMT799Utils.createFromString(input);
             await repository.SaveAsync(message);
         }
     }

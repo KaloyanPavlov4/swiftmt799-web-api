@@ -5,7 +5,7 @@ namespace swiftmt799_web_api.Utils
 {
 
     //Constructs object by matching fields with regex
-    public static class SwiftMT799Factory
+    public static class SwiftMT799Utils
     {
         private const string Block1Pattern = @"^{1:([A-Z0-9]+)}";
         private const string Block2Pattern = @"{2:([A-Z0-9]+)}";
